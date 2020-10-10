@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+
+
+            <ui:define name="content">
+                 <style type="text/css">
+                .value {
+                    font-weight: bold;
+                }
+            </style>
+
+
+            <h:form id="form">
+                <p:dataGrid var="pro" value="#{produitBean.top5()}" columns="3" 
+                            rows="12" paginator="true" id="pro"
+                            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                            rowsPerPageTemplate="2,6,12,16">
+
+                    <f:facet name="header">
+                         Top 5
+                    </f:facet>
+
+                    <p:panel header="#{pro.libelle}" style="text-align:center">
+                        <h:panelGrid columns="1" style="width:100%">
+                            <p:graphicImage name="/image/#{pro.logo}" height="120" width="120" /> 
+                            <h:outputText value="Price: #{pro.prixVent} $"/>
+                            <p:commandButton value="Buy it" action="buy"/>
+                           <p:commandButton value="DetailProduit" action="#{produitBean.Produit()}" >
+                    <f:setPropertyActionListener value="#{pro}" target="#{produitBean.selectedProEntity}" />
+                    
+                </p:commandButton>
+                        </h:panelGrid>
+                    </p:panel>
+
+                </p:dataGrid>
+
+               
+            </h:form>
+            </ui:define>
+
+           
+
+        </ui:composition>
+
+    </body>
+</html>

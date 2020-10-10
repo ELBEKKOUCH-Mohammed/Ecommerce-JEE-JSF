@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                   <div id="top" class="top">
+            <ui:insert name="top">Top</ui:insert>
+                <h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:menuitem value="Home" action="accueil" icon="pi pi-home"  />
+         <p:menuitem value="Our Products" url="http://www.primefaces.org"  />  
+         <p:menuitem value="My count" action="Mycount"  />
+                  
+        <p:submenu label="Login or Regester" icon="pi pi-question">
+            <p:menuitem value="Login"  action="authentification"/>
+            <p:menuitem value="Register"  action="inscription"/>
+        </p:submenu>
+ 
+        <p:menuitem value="Quit" url="http://www.primefaces.org"  />
+        <p:menuitem value="Quit" action="index"  />
+        <p:menuitem value="Panier" action="panier"  />
+ 
+        <f:facet name="options">
+            <p:inputText style="margin:1px 10px 1px 1px;" value="#{produitBean.search}" placeholder="Search"/>
+            <p:commandButton  value="Search" action="Search?faces-redirect=true"/>
+            <p:commandButton action="#{personneBean.logout()}" value="Logout"  />
+        </f:facet>
+    </p:menubar>
+</h:form>
+                   </div>
+                </p:layoutUnit>
+            
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <form>
+                        
+                        
+                    </form>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <div id="content" class="content">
+                <ui:insert name="content">Content</ui:insert>
+                      </div>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

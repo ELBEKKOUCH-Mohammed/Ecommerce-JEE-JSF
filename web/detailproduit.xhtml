@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+
+            <ui:define name="content">
+                <p:graphicImage name="/image/#{produitBean.selectedProEntity.logo}" height="120" width="120"/> 
+                <h:form>
+                <p:panelGrid  columns="2" >
+               
+                 
+                    <p:outputLabel value="libelle:" />
+                    <p:outputLabel value="#{produitBean.selectedProEntity.libelle}" />
+ 
+                    <p:outputLabel value="Description:" />
+                    <p:outputLabel value="#{produitBean.selectedProEntity.description}" />
+ 
+             
+                    <p:outputLabel value="Price" />
+                    <p:outputLabel value="#{produitBean.selectedProEntity.prixVent}$" />
+                    
+                    
+                    
+                    <p:commandButton value="Buy Now" action="buy"/>
+                    <p:commandButton value="Add to panie" action="#{commandeBean.add(personneBean.perEntity.login,produitBean.selectedProEntity.idProduit)}" />
+            </p:panelGrid>
+                    </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+    
+    <h:body>
+        
+        <div id="top">
+            <ui:insert name="top"></ui:insert>
+                        <h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:menuitem value="Home" action="accueil" icon="pi pi-home"  />
+         <p:menuitem value="Our Products" action="accueil"  />  
+         <p:menuitem value="My count" action="Mycount"  />
+                  
+        <p:submenu label="Login or Regester" icon="pi pi-question">
+            <p:menuitem value="Login"  action="authentification"/>
+            <p:menuitem value="Register"  action="inscription"/>
+        </p:submenu>
+ 
+        <p:menuitem value="Top 5" action="top"  />
+        <p:menuitem value="My Orders" action="order"  />
+        <p:menuitem value="My wish list" action="panier"  />
+ 
+        <f:facet name="options">
+            <p:inputText style="margin:1px 10px 1px 1px;" value="#{produitBean.search}" placeholder="Search"/>
+            <p:commandButton  value="Search" action="Search?faces-redirect=true"/>
+            <p:commandButton action="#{personneBean.logout()}" value="Logout"  />
+        </f:facet>
+    </p:menubar>
+</h:form>
+        </div>
+        
+     
+            <div id="content" >
+                
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+       
+      
+        
+    </h:body>
+    
+</html>

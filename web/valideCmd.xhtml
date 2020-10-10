@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+
+            <ui:define name="content">
+                     <h:form>
+               <h:panelGrid columns="2"
+                     columnClasses="rightalign-bold,normal">
+            <h:outputText value="Delivery address : "/>
+            <h:outputText value="#{commandeBean.comEntity.adressLivraison}" />
+            <h:outputText value="City :"/>
+            <h:outputText value="#{commandeBean.comEntity.villeLivraison}" />
+            <h:outputText value="Country :"/>
+            <h:outputText value="#{commandeBean.comEntity.payeLivraison}" />
+            <h:outputText value="Quantité :"/>
+            <h:outputText value="#{commandeBean.comEntity.qte}" />
+            <h:outputText value="total price :"/>
+            <h:outputText value="#{commandeBean.somtotale(commandeBean.comEntity,produitBean.selectedProEntity)}$"/> 
+        </h:panelGrid>
+                    <br></br>
+                    <p:commandButton value="Confirme" action="#{commandeBean.Buy(personneBean.perEntity,commandeBean.comEntity,produitBean.selectedProEntity)}"
+                                         ajax="false"/>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="./Template.xhtml">
+        
+        <ui:define name="content">
+           
+
+
+            <h:form> 
+                <p:dataScroller var="pro" value="#{commandeBean.panierpersonne(personneBean.perEntity.login)}" mode="inline"  chunkSize="10">
+                    <f:facet name="header">
+                        My wish list
+                    </f:facet>
+
+                    <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                        <p:graphicImage name="/image/#{pro.logo}" height="120" width="120" /> 
+
+                        <p:outputPanel>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputText value="Name:" />
+                                <h:outputText value="#{pro.libelle}" style="font-weight: bold"/>
+
+                                <h:outputText value="Price:" />
+                                <h:outputText value="#{pro.prixVent}$" style="font-weight: bold"/>
+                                
+                                 <h:outputText value="Description:" />
+                                 <h:outputText value="#{pro.description}" style="font-weight: bold"/>
+
+                                 <p:commandButton value="Buy Now" action="buy">
+                                     <f:setPropertyActionListener value="#{pro}" target="#{produitBean.selectedProEntity}" /> </p:commandButton>
+                                 <p:commandButton value="Dalete" action="#{commandeBean.delate(personneBean.perEntity,produitBean.selectedProEntity)}">             
+                                     <f:setPropertyActionListener value="#{pro}" target="#{produitBean.selectedProEntity}" /> </p:commandButton>
+
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </h:panelGrid>
+                </p:dataScroller>
+                <p:commandButton  id="buy"  action="accueil" value="Home" style="background-color: #4CAF50; width: 100%; margin:auto;" />
+
+               
+            </h:form>
+            
+            
+               
+            
+        </ui:define>
+    </ui:composition>
+</html>

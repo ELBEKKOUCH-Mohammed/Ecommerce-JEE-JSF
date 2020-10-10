@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+
+            <ui:define name="content">
+                 <h:form> <p:messages/>
+                <p:panel header="Enter your Information">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="add" value="address"
+                                       styleClass="requiredLbl"/>
+                        <h:inputText id="add" label=" address" 
+                                     value="#{commandeBean.comEntity.adressLivraison}" required="true"/>
+                        <h:outputLabel for="city" value="
+                                       City" styleClass="optionalLbl"/>
+                        <h:inputText id="city" label="City"
+                                     value="#{commandeBean.comEntity.villeLivraison}"/>
+                        <h:outputLabel for="country" value="Country"
+                                       styleClass="requiredLbl"/>
+                        <h:inputText id="country" label="Country"
+                                     value="#{commandeBean.comEntity.payeLivraison}"  required="true"/>
+                        <h:outputLabel for="Quantité" value="Quantité:"  />
+                         <h:inputText id="qte" label="Quantité"
+                                      value="#{commandeBean.comEntity.qte}"  required="true"/>
+                        <h:panelGroup/>
+                        <p:commandButton value="Buy It" action="valideCmd"  ajax="false"/>
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

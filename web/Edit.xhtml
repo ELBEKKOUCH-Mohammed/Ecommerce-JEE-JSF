@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+
+            <ui:define name="content">
+                 <h:form>
+                <h:panelGrid columns="3">
+                    <p:outputLabel value="Login:" for="login" />
+                    <p:inputText id="login" value="#{personneBean.perEntity.login}"  required="true" requiredMessage="#{bundle.CreatePersonneRequiredMessage_login}"/>
+                    <p:message for="login" />
+                    <p:outputLabel value="Password:" for="passwd" />
+                    <p:inputText id="passwd" value="#{personneBean.perEntity.password}"  required="true" requiredMessage="#{bundle.CreatePersonneRequiredMessage_passwd}"/>
+                    <p:message for="passwd" />
+                    <p:outputLabel value="First name" for="nom" />
+                    <p:inputText id="nom" value="#{personneBean.perEntity.nom}"  required="true" requiredMessage="#{bundle.CreatePersonneRequiredMessage_nom}"/>
+                    <p:message for="nom" />
+                    <p:outputLabel value="Last name:" for="prenom" />
+                    <p:inputText id="prenom" value="#{personneBean.perEntity.prenom}"  required="true" requiredMessage="#{bundle.CreatePersonneRequiredMessage_prenom}"/>
+                    <p:message for="prenom" />
+                    <p:outputLabel for="button" value="Birthday:" />
+                    <p:calendar id="button" value="#{personneBean.perEntity.dateNaissance}"   showOn="button" />
+                    <p:message for="button" />
+                    <p:outputLabel value="Email:" for="email" />
+                    <p:inputText id="email" value="#{personneBean.perEntity.email}"  required="true" requiredMessage="#{bundle.CreatePersonneRequiredMessage_email}"/>
+                    <p:message for="email" />
+                    <p:outputLabel value="Phone:" for="tel" />
+                    <p:inputText id="tel" value="#{personneBean.perEntity.tel}" required="true" requiredMessage="#{bundle.CreatePersonneRequiredMessage_tel}"/>
+                    <p:message for="tel" />
+                    <p:outputLabel value="Adress:" for="adress" />
+                    <p:inputText id="adress" value="#{personneBean.perEntity.adress}" required="true" requiredMessage="#{bundle.CreatePersonneRequiredMessage_adress}"/>
+                    <p:message for="adress" />
+                    <p:outputLabel value="City:" for="ville" />
+                    <p:inputText id="ville" value="#{personneBean.perEntity.ville}" required="true" requiredMessage="#{bundle.CreatePersonneRequiredMessage_ville}"/>
+                    <p:message for="button" />
+                    <p:outputLabel value="Country" for="pays" />
+                    <p:inputText id="pays" value="#{personneBean.perEntity.paye}" required="true" requiredMessage="#{bundle.CreatePersonneRequiredMessage_pays}"/>
+                    <p:message for="pays" />
+                    <p:commandButton value="Save:" action="#{personneBean.edit()}" icon="pi pi-check" />
+                    <p:commandButton value="Annuler" action="Mycount"/>
+                </h:panelGrid>
+               
+            </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
